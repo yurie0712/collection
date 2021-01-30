@@ -1,0 +1,84 @@
+$cBlack: black;
+
+a {
+  color: $cBlack;
+
+  &:visited {
+    color: $cBlack;
+  }
+
+  &:hover {
+    color: $cBlack;
+  }
+
+  &:active {
+    color: $cBlack;
+  }
+}
+
+body {
+  text-align: center;
+}
+
+.three-dot-spinner {
+  margin: 80px 0;
+  & div{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: $cBlack;
+    border-radius: 50%;
+    animation: sk-bouncedelay 1.4s infinite;
+
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        animation-delay: -0.32s / $i;
+      }
+    }
+  }
+}
+
+@mixin animation(
+  $name,
+  $duration: 1s
+) {
+  animation: {
+    name: $name;
+    duration:  $duration;
+  }
+}
+
+.rect {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: $cBlack;
+  @include animation(
+    $name: sk-bouncedelay
+  );
+  // animation: sk-bouncedelay 1.4s;
+  animation-timing-function: ease;
+  // アニメーションが開始するまで
+  animation-delay: 2s;
+  // 繰り返し数
+  animation-iteration-count: 5;
+  // 100%からスタート alternate:折り返し再生 
+  animation-direction: reverse;
+  // アニメーションが終了した時点のcssを保持する。both:開始時、終了時両方とも保持する。
+  animation-fill-mode: both;
+}
+
+@keyframes sk-bouncedelay {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

@@ -1,0 +1,22 @@
+
+・X軸,Y軸方向に移動
+transform: translate(X, Y)
+
+・平面上で回転
+transform: rotate(●deg)
+
+・起点
+transform-origin: center center;
+
+・大きさの変更
+transform: scale(X, Y)
+
+・画面の決まった位置に要素を表示したり、要素の決まった位置に固定する場合に使用
+position: static; 　
+position: relative; 現在表示されている位置から相対的に表示させる場合
+position: absolute; 親要素にrelativeが使われている場合、位置を指定できる。（厳密にいうと、親要素にstatic以外の場合に適用される）
+position: fixed; windowに合わせて固定された位置が表示される
+positon: sticky; 親要素の中に位置を固定できる
+
+・z-indexについて
+relativeと併用して使われる
